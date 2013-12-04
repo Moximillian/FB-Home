@@ -72,7 +72,7 @@
     CGFloat w = powf(self.initialLength / self.length, 2.0);
     if (w > 1.0) w = 1.0;
     CGContextSetAlpha(context, 0.7*w);
-    NSLog(@"Rope alpha: %.2f <-- %.2f %.2f", w, self.initialLength, self.length);
+    //NSLog(@"Rope alpha: %.2f <-- %.2f %.2f", w, self.initialLength, self.length);
 
     CGContextSetLineWidth(context, w * 5.0);
     CGContextMoveToPoint(context, self.sPt.x, self.sPt.y); //start at this point

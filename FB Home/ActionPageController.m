@@ -148,9 +148,57 @@ int pageId;
             
             break; }
         case 3: {
-            sshot = @"ios-mail.png";
+            sshot = @"hanger-bg.png";
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+            
+            CAShapeLayer *cross = [CAShapeLayer layer];
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            [path moveToPoint:CGPointMake(20.0, 0.0)];
+            [path addLineToPoint:CGPointMake(20.0, 40.0)];
+            [path moveToPoint:CGPointMake(0.0, 20.0)];
+            [path addLineToPoint:CGPointMake(40.0, 20.0)];
+            cross.path = path.CGPath;
+            cross.strokeColor = [UIColor redColor].CGColor;
+            cross.lineWidth = 1.0;
+            cross.frame = CGRectMake(CGRectGetMidX(self.view.bounds) - 20.0, 20.0, 40.0, 40.0);
+            [self.view.layer addSublayer:cross];
+            
+            //pinbutton
+            self.pinButton.alpha = 1.0;
+            [self.view addSubview:self.pinButton];
+            
+            UIInterpolatingMotionEffect *xAxis = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+            xAxis.minimumRelativeValue = @(-20.0);
+            xAxis.maximumRelativeValue = @(20.0);
+            
+            UIInterpolatingMotionEffect *yAxis = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+            CGFloat minimumvalue = 90.0 - CGRectGetMidY(self.view.bounds);
+            yAxis.minimumRelativeValue = @(minimumvalue);
+            yAxis.maximumRelativeValue = @(minimumvalue + 40.0);
 
+            NSLog(@"mid: %.2f", CGRectGetMidY(self.view.bounds));
+            
+            UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
+            group.motionEffects = @[xAxis, yAxis];
+            [self.pinButton addMotionEffect:group];
+            
+            //hangerbadge
+            self.hangerBadge.alpha = 1.0;
+            [self.view addSubview:self.hangerBadge];
+
+            UICollisionBehavior *coll = [[UICollisionBehavior alloc] initWithItems:@[self.hangerBadge]];
+            [coll setTranslatesReferenceBoundsIntoBoundary:YES];
+            [self.animator addBehavior:coll];
+            
+            UIDynamicItemBehavior *behav = [[UIDynamicItemBehavior alloc] initWithItems:@[self.hangerBadge]];
+            behav.elasticity = 0.5;
+            [self.animator addBehavior:behav];
+            
+            self.push = [[UIPushBehavior alloc] initWithItems:@[self.hangerBadge] mode:UIPushBehaviorModeContinuous];
+            [self.animator addBehavior:self.push];
+            _push.pushDirection = CGVectorMake(0, 0);
+            _push.active = YES;
+            
             break; }
     }
     UIImage *bgImage = [UIImage imageNamed:sshot];
@@ -223,7 +271,6 @@ int pageId;
                 
                 //NSLog(@"Motion: ACC: %.2f %.2f %.2f", acc.x, acc.y, acc.z);
                 [self.push setActive:NO];
-                [self.push setMagnitude:20.0];
                 [self.push setPushDirection:CGVectorMake(-acc.x, 0.0)];
                 [self.push setActive:YES];
                 NSLog(@"Motion: PUSH: %.2f", acc.x);
@@ -234,11 +281,6 @@ int pageId;
             if (self.hasReferencePos) {
                 /*NSLog(@"Motion: PITCH: %.0f, ROLL: %.0f, YAW: %.0f", motion.attitude.pitch*180/M_PI, motion.attitude.roll*180/M_PI, motion.attitude.yaw*180/M_PI);
                  */
-                //self.currentAttitude = motion.attitude;
-                //[self.currentAttitude multiplyByInverseOfAttitude:self.referenceAttitude];
-                
-                //[self.gravity setGravityDirection:CGVectorMake(sin(downAngle), cos(downAngle))];
-                
                 double downAngle = M_PI/2 - (motion.attitude.yaw); // - self.referenceYaw);
                 [self.hangerView setAngle:downAngle];
                 [self.hangerView setNeedsDisplay];
@@ -250,6 +292,11 @@ int pageId;
             }
         }
             break;
+        case 3: {
+            CMAttitude *a = motion.attitude;
+            [self.push setPushDirection:CGVectorMake(a.roll*2, a.pitch*2)];
+            //NSLog(@"Motion: PUSH: %.2f %.2f %.2f", a.yaw, a.pitch, a.roll);
+        }
     }
 }
 
