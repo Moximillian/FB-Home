@@ -32,9 +32,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.sPt = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-        self.lineLength = self.bounds.size.height/2;
-        self.ePt = CGPointMake(self.sPt.x, self.sPt.y + self.lineLength);
+        _sPt = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+        _lineLength = self.bounds.size.height/2;
+        _ePt = CGPointMake(_sPt.x, _sPt.y + _lineLength);
         [self setOpaque:NO];
     }
     return self;
@@ -43,8 +43,8 @@
 
 - (void) setAngle:(double)angle
 {
-    self.ePt = CGPointMake(self.sPt.x + self.lineLength * sin(angle),
-                           self.sPt.y + self.lineLength * cos(angle));
+    _ePt = CGPointMake(_sPt.x + _lineLength * sin(angle),
+                           _sPt.y + _lineLength * cos(angle));
 }
 
 
@@ -60,7 +60,7 @@
     
     // black filled circle
     CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-    CGContextAddEllipseInRect(context, CGRectMake(self.sPt.x - self.lineLength, self.sPt.y - self.lineLength, self.lineLength*2, self.lineLength*2));
+    CGContextAddEllipseInRect(context, CGRectMake(_sPt.x - _lineLength, _sPt.y - _lineLength, _lineLength*2, _lineLength*2));
     CGContextFillPath(context);
 
     // white ticks
@@ -68,25 +68,25 @@
     CGContextSetLineWidth(context, 1.0);
     for (int i = 0; i < 8; i++) {
         CGFloat angle = i * 2 * M_PI / 8;
-        CGFloat dx = self.lineLength * sin(angle);
-        CGFloat dy = self.lineLength * cos(angle);
-        CGContextMoveToPoint(context, self.sPt.x + 5.0/6.0*dx, self.sPt.y + 5.0/6.0*dy); //start at this point
-        CGContextAddLineToPoint(context, self.sPt.x + dx, self.sPt.y + dy); //draw to this point
+        CGFloat dx = _lineLength * sin(angle);
+        CGFloat dy = _lineLength * cos(angle);
+        CGContextMoveToPoint(context, _sPt.x + 5.0/6.0*dx, _sPt.y + 5.0/6.0*dy); //start at this point
+        CGContextAddLineToPoint(context, _sPt.x + dx, _sPt.y + dy); //draw to this point
     }
     for (int i = 0; i < 24; i++) {
         CGFloat angle = i * 2 * M_PI / 24;
-        CGFloat dx = self.lineLength * sin(angle);
-        CGFloat dy = self.lineLength * cos(angle);
-        CGContextMoveToPoint(context, self.sPt.x + 11.0/12.0*dx, self.sPt.y + 11.0/12.0*dy); //start at this point
-        CGContextAddLineToPoint(context, self.sPt.x + dx, self.sPt.y + dy); //draw to this point
+        CGFloat dx = _lineLength * sin(angle);
+        CGFloat dy = _lineLength * cos(angle);
+        CGContextMoveToPoint(context, _sPt.x + 11.0/12.0*dx, _sPt.y + 11.0/12.0*dy); //start at this point
+        CGContextAddLineToPoint(context, _sPt.x + dx, _sPt.y + dy); //draw to this point
     }
     CGContextStrokePath(context);
     
     //red arrow
     CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
     CGContextSetLineWidth(context, 2.0);
-    CGContextMoveToPoint(context, self.sPt.x, self.sPt.y); //start at this point
-    CGContextAddLineToPoint(context, self.ePt.x, self.ePt.y); //draw to this point
+    CGContextMoveToPoint(context, _sPt.x, _sPt.y); //start at this point
+    CGContextAddLineToPoint(context, _ePt.x, _ePt.y); //draw to this point
     CGContextStrokePath(context);
     
 }

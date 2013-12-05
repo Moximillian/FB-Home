@@ -80,59 +80,59 @@ int pageId;
 
 - (void) drawTimerAction
 {
-    [self.ropeView setRope:self.pinButton.center to:self.hangerBadge.center];
-    [self.ropeView setNeedsDisplay];
+    [_ropeView setRope:_pinButton.center to:_hangerBadge.center];
+    [_ropeView setNeedsDisplay];
 }
 
 - (void) initPage
 {
     //Calibrate device orientation
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.deviceMotionUpdateInterval = 1.0 / 10.0;
-    self.hasReferencePos = FALSE;
-    self.listenToAcceleration = FALSE;
+    _motionManager = [[CMMotionManager alloc] init];
+    _motionManager.deviceMotionUpdateInterval = 1.0 / 10.0;
+    _hasReferencePos = FALSE;
+    _listenToAcceleration = FALSE;
     
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
     NSString *sshot;
-    self.pinButton.alpha = 0;
-    self.hangerBadge.alpha = 0;
+    _pinButton.alpha = 0;
+    _hangerBadge.alpha = 0;
 
     switch (pageId) {
         case 1: {
             sshot = @"hanger-bg.png";
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
-            self.pinButton.alpha = 1.0;
-            self.hangerBadge.alpha = 1.0;
+            _pinButton.alpha = 1.0;
+            _hangerBadge.alpha = 1.0;
             
-            self.ropeView = [[RopeView alloc] initWithFrame:CGRectMake(0,0,
+            _ropeView = [[RopeView alloc] initWithFrame:CGRectMake(0,0,
                                                                         self.view.bounds.size.width,
                                                                         self.view.bounds.size.height)];
-            [self.view addSubview:self.ropeView];
-            [self.ropeView initRopeLength:self.pinButton.center to:self.hangerBadge.center];
+            [self.view addSubview:_ropeView];
+            [_ropeView initRopeLength:_pinButton.center to:_hangerBadge.center];
             
             //hanger
-            UICollisionBehavior *coll = [[UICollisionBehavior alloc] initWithItems:@[self.hangerBadge]];
+            UICollisionBehavior *coll = [[UICollisionBehavior alloc] initWithItems:@[_hangerBadge]];
             [coll setTranslatesReferenceBoundsIntoBoundary:YES];
             
-            self.pinLocation = self.pinButton.center;
+            _pinLocation = _pinButton.center;
             
-            self.attach = [[UIAttachmentBehavior alloc] initWithItem:self.hangerBadge attachedToAnchor:self.pinLocation];
-            [self.attach setFrequency:1.0];
-            [self.attach setDamping:0.5];
-            UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[self.hangerBadge]];
-            UIDynamicItemBehavior *bHeavy = [[UIDynamicItemBehavior alloc] initWithItems:@[self.hangerBadge]];
+            _attach = [[UIAttachmentBehavior alloc] initWithItem:_hangerBadge attachedToAnchor:_pinLocation];
+            [_attach setFrequency:1.0];
+            [_attach setDamping:0.5];
+            UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[_hangerBadge]];
+            UIDynamicItemBehavior *bHeavy = [[UIDynamicItemBehavior alloc] initWithItems:@[_hangerBadge]];
             //[bHeavy setDensity:4.0];
             [bHeavy setResistance:1.0];
-            [self.animator addBehavior:bHeavy];
+            [_animator addBehavior:bHeavy];
             
-            [self.animator addBehavior:coll];
-            [self.animator addBehavior:self.attach];
-            [self.animator addBehavior:gravity];
+            [_animator addBehavior:coll];
+            [_animator addBehavior:_attach];
+            [_animator addBehavior:gravity];
             
-            self.push = [[UIPushBehavior alloc] initWithItems:@[self.hangerBadge] mode:UIPushBehaviorModeInstantaneous];
-            [self.animator addBehavior:self.push];
-            self.listenToAcceleration = TRUE;
+            _push = [[UIPushBehavior alloc] initWithItems:@[_hangerBadge] mode:UIPushBehaviorModeInstantaneous];
+            [_animator addBehavior:_push];
+            _listenToAcceleration = TRUE;
             
             [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(drawTimerAction) userInfo:nil repeats:TRUE];
             
@@ -141,10 +141,10 @@ int pageId;
             sshot = @"compass-bg.png";
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
             CGFloat radius = 100.0;
-            self.hangerView = [[HangerView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 - radius,
+            _hangerView = [[HangerView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 - radius,
                                                                            self.view.bounds.size.height/2 -radius,
                                                                            radius*2, radius*2)];
-            [self.view addSubview:self.hangerView];
+            [self.view addSubview:_hangerView];
             
             break; }
         case 3: {
@@ -164,8 +164,8 @@ int pageId;
             [self.view.layer addSublayer:cross];
             
             //pinbutton
-            self.pinButton.alpha = 1.0;
-            [self.view addSubview:self.pinButton];
+            _pinButton.alpha = 1.0;
+            [self.view addSubview:_pinButton];
             
             UIInterpolatingMotionEffect *xAxis = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
             xAxis.minimumRelativeValue = @(-20.0);
@@ -176,26 +176,26 @@ int pageId;
             yAxis.minimumRelativeValue = @(minimumvalue);
             yAxis.maximumRelativeValue = @(minimumvalue + 40.0);
 
-            NSLog(@"mid: %.2f", CGRectGetMidY(self.view.bounds));
+            //NSLog(@"mid: %.2f", CGRectGetMidY(self.view.bounds));
             
             UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
             group.motionEffects = @[xAxis, yAxis];
-            [self.pinButton addMotionEffect:group];
+            [_pinButton addMotionEffect:group];
             
             //hangerbadge
-            self.hangerBadge.alpha = 1.0;
-            [self.view addSubview:self.hangerBadge];
+            _hangerBadge.alpha = 1.0;
+            [self.view addSubview:_hangerBadge];
 
-            UICollisionBehavior *coll = [[UICollisionBehavior alloc] initWithItems:@[self.hangerBadge]];
+            UICollisionBehavior *coll = [[UICollisionBehavior alloc] initWithItems:@[_hangerBadge]];
             [coll setTranslatesReferenceBoundsIntoBoundary:YES];
-            [self.animator addBehavior:coll];
+            [_animator addBehavior:coll];
             
-            UIDynamicItemBehavior *behav = [[UIDynamicItemBehavior alloc] initWithItems:@[self.hangerBadge]];
+            UIDynamicItemBehavior *behav = [[UIDynamicItemBehavior alloc] initWithItems:@[_hangerBadge]];
             behav.elasticity = 0.5;
-            [self.animator addBehavior:behav];
+            [_animator addBehavior:behav];
             
-            self.push = [[UIPushBehavior alloc] initWithItems:@[self.hangerBadge] mode:UIPushBehaviorModeContinuous];
-            [self.animator addBehavior:self.push];
+            _push = [[UIPushBehavior alloc] initWithItems:@[_hangerBadge] mode:UIPushBehaviorModeContinuous];
+            [_animator addBehavior:_push];
             _push.pushDirection = CGVectorMake(0, 0);
             _push.active = YES;
             
@@ -205,7 +205,7 @@ int pageId;
     self.view.layer.contents = (id) bgImage.CGImage;
     
     //start motion detection
-    [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical
+    [_motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical
                                                             toQueue:[NSOperationQueue currentQueue]
                                                         withHandler:^(CMDeviceMotion *motion, NSError *error) {
                                                             [self motionHandler:motion];
@@ -217,10 +217,10 @@ int pageId;
     switch (pageId) {
         case 1: {
             CGPoint pt = [[touches anyObject] locationInView:self.view];
-            pt.x -= self.pinButton.frame.origin.x;
-            pt.y -= self.pinButton.frame.origin.y;
-            if ([self.pinButton pointInside:pt withEvent:nil]) {
-                self.pinDragging = YES;
+            pt.x -= _pinButton.frame.origin.x;
+            pt.y -= _pinButton.frame.origin.y;
+            if ([_pinButton pointInside:pt withEvent:nil]) {
+                _pinDragging = YES;
             }
         }
         break;
@@ -232,10 +232,10 @@ int pageId;
 {
     switch (pageId) {
         case 1: {
-            if (self.pinDragging) {
+            if (_pinDragging) {
                 CGPoint pt = [[touches anyObject] locationInView:self.view];
-                self.pinButton.center = pt;
-                [self.attach setAnchorPoint:pt];
+                _pinButton.center = pt;
+                [_attach setAnchorPoint:pt];
             }
         }
         break;
@@ -246,8 +246,8 @@ int pageId;
 {
     switch (pageId) {
         case 1: {
-            if (self.pinDragging) {
-                self.pinDragging = NO;
+            if (_pinDragging) {
+                _pinDragging = NO;
             }
         }
         break;
@@ -256,7 +256,7 @@ int pageId;
 
 - (void) resetListenAcceleration
 {
-    self.listenToAcceleration = TRUE;
+    _listenToAcceleration = TRUE;
     //NSLog(@"Reset");
 }
 
@@ -265,36 +265,36 @@ int pageId;
     switch (pageId) {
         case 1: {
             CMAcceleration acc = motion.userAcceleration;
-            if (self.listenToAcceleration && (fabs(acc.x) > 0.4)) {
-                self.listenToAcceleration = FALSE;
+            if (_listenToAcceleration && (fabs(acc.x) > 0.4)) {
+                _listenToAcceleration = FALSE;
                 [NSTimer scheduledTimerWithTimeInterval:0.4 target:self selector:@selector(resetListenAcceleration) userInfo:nil repeats:FALSE];
                 
                 //NSLog(@"Motion: ACC: %.2f %.2f %.2f", acc.x, acc.y, acc.z);
-                [self.push setActive:NO];
-                [self.push setPushDirection:CGVectorMake(-acc.x, 0.0)];
-                [self.push setActive:YES];
+                [_push setActive:NO];
+                [_push setPushDirection:CGVectorMake(-acc.x, 0.0)];
+                [_push setActive:YES];
                 NSLog(@"Motion: PUSH: %.2f", acc.x);
             }
         }
             break;
         case 2: {
-            if (self.hasReferencePos) {
+            if (_hasReferencePos) {
                 /*NSLog(@"Motion: PITCH: %.0f, ROLL: %.0f, YAW: %.0f", motion.attitude.pitch*180/M_PI, motion.attitude.roll*180/M_PI, motion.attitude.yaw*180/M_PI);
                  */
-                double downAngle = M_PI/2 - (motion.attitude.yaw); // - self.referenceYaw);
-                [self.hangerView setAngle:downAngle];
-                [self.hangerView setNeedsDisplay];
+                double downAngle = M_PI/2 - (motion.attitude.yaw); // - _referenceYaw);
+                [_hangerView setAngle:downAngle];
+                [_hangerView setNeedsDisplay];
                 
             } else {
-                self.hasReferencePos = TRUE;
-                self.referenceAttitude = motion.attitude;
+                _hasReferencePos = TRUE;
+                _referenceAttitude = motion.attitude;
                 NSLog(@"Reference yaw: %lf, pitch %lf, roll %lf", motion.attitude.yaw, motion.attitude.pitch, motion.attitude.roll);
             }
         }
             break;
         case 3: {
             CMAttitude *a = motion.attitude;
-            [self.push setPushDirection:CGVectorMake(a.roll*2, a.pitch*2)];
+            [_push setPushDirection:CGVectorMake(a.roll*2, a.pitch*2)];
             //NSLog(@"Motion: PUSH: %.2f %.2f %.2f", a.yaw, a.pitch, a.roll);
         }
     }
@@ -302,7 +302,7 @@ int pageId;
 
 //CMMotion
 - (void)stopDeviceMotion {
-    [self.motionManager stopDeviceMotionUpdates];
+    [_motionManager stopDeviceMotionUpdates];
 }
 
 
