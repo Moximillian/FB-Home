@@ -18,15 +18,6 @@
 
 @implementation HangerView
 
-/*
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    NSLog(@"Hello!...");
-    return self;
-}*/
-
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
