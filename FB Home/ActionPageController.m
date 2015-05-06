@@ -8,8 +8,7 @@
 
 #import "ActionPageController.h"
 @import CoreMotion;
-#include "HangerView.h"
-#include "RopeView.h"
+#import "FB_Home-Swift.h"
 
 @interface ActionPageController ()
 
