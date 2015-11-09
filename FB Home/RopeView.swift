@@ -31,14 +31,14 @@ class RopeView : UIView {
     }
 
     func initRopeLength(sPt: CGPoint, to ePt: CGPoint) {
-        initialLength = sqrt(pow(ePt.x - sPt.x, 2.0)) + pow(ePt.y - sPt.y, 2.0)
+        initialLength = hypot(ePt.x - sPt.x, ePt.y - sPt.y)
     }
 
 
     func setRope(sPt:CGPoint, to ePt:CGPoint) {
         self.sPt = sPt
         self.ePt = ePt
-        length = sqrt(pow(ePt.x - sPt.x, 2.0) + pow(ePt.y - sPt.y, 2.0))
+        length = hypot(ePt.x - sPt.x, ePt.y - sPt.y)
     }
 
     // Only override drawRect: if you perform custom drawing.
