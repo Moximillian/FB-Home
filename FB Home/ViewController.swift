@@ -143,10 +143,10 @@ class ViewController: UIViewController {
         }
     }
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
 
-        for touch in (touches as! Set<UITouch>) {
+        for touch in touches {
             var pt = touch.locationInView(self.view)
             pt.x -= startButton.frame.origin.x
             pt.y -= startButton.frame.origin.y
@@ -158,18 +158,18 @@ class ViewController: UIViewController {
         }
     }
 
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if buttonDragging {
-            for touch in (touches as! Set<UITouch>) {
+            for touch in touches {
                 let pt = touch.locationInView(self.view)
                 startButton.center = pt;
             }
         }
     }
 
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if (buttonDragging) {
-            for touch in (touches as! Set<UITouch>) {
+            for touch in touches {
                 let pt = touch.locationInView(self.view)
                 //NSLog(@"Action button test: %.0f %.0f", pt.x, pt.y);
                 if actionTest(leftActionButton, pt) { viewActivate("Left") }
