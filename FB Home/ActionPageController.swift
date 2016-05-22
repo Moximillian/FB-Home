@@ -65,7 +65,7 @@ class ActionPageController: UIViewController {
 
   lazy var ropeView: RopeView = {
     let r = RopeView(frame: CGRect(origin: .zero, size: self.view.frame.size))
-    r.initRopeLength(sPt: self.pinButton.center, to:self.hangerBadge.center)
+    r.initRope(from: self.pinButton.center, to: self.hangerBadge.center)
     return r
   }()
 

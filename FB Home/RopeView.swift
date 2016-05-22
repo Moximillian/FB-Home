@@ -19,7 +19,7 @@ class RopeView : UIView {
     isOpaque = false
   }
 
-  func initRopeLength(sPt: CGPoint, to ePt: CGPoint) {
+  func initRope(from sPt: CGPoint, to ePt: CGPoint) {
     initialLength = hypot(ePt.x - sPt.x, ePt.y - sPt.y)
   }
 
