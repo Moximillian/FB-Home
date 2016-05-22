@@ -5,7 +5,7 @@
 //  Created by Mox Soini on 24.8.2013.
 //  Copyright (c) 2013 Mox Soini. All rights reserved.
 //
-
+/*
 #import <XCTest/XCTest.h>
 
 @interface FB_HomeTests : XCTestCase
@@ -32,3 +32,4 @@
 }
 
 @end
+*/

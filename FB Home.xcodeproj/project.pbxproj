@@ -11,21 +11,16 @@
 		411A63BA1AFA204300FE6AEA /* HangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411A63B91AFA204300FE6AEA /* HangerView.swift */; };
 		411A63BC1AFA29EB00FE6AEA /* RopeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411A63BB1AFA29EB00FE6AEA /* RopeView.swift */; };
 		411A63BE1AFA372000FE6AEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411A63BD1AFA372000FE6AEA /* ViewController.swift */; };
+		41AD66781CF1B35200F17BEE /* ActionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD66771CF1B35200F17BEE /* ActionPageController.swift */; };
 		912ABCFA17CE217C004015CA /* ios-launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 912ABCF717CE217C004015CA /* ios-launcher.png */; };
 		912ABCFB17CE217C004015CA /* ios-mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 912ABCF817CE217C004015CA /* ios-mail.png */; };
 		912ABCFC17CE217C004015CA /* ios-messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 912ABCF917CE217C004015CA /* ios-messages.png */; };
 		912ABD0017CE298A004015CA /* launcherbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 912ABCFD17CE2989004015CA /* launcherbutton.png */; };
 		912ABD0117CE298A004015CA /* mailbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 912ABCFE17CE2989004015CA /* mailbutton.png */; };
 		912ABD0217CE298A004015CA /* messagebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 912ABCFF17CE2989004015CA /* messagebutton.png */; };
-		915753C217C91047001492E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915753C117C91047001492E1 /* Foundation.framework */; };
-		915753C417C91047001492E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915753C317C91047001492E1 /* CoreGraphics.framework */; };
-		915753C617C91047001492E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915753C517C91047001492E1 /* UIKit.framework */; };
 		915753CC17C91047001492E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 915753CA17C91047001492E1 /* InfoPlist.strings */; };
 		915753D517C91047001492E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915753D317C91047001492E1 /* Main.storyboard */; };
 		915753DA17C91047001492E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915753D917C91047001492E1 /* Images.xcassets */; };
-		915753E117C91047001492E1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915753E017C91047001492E1 /* XCTest.framework */; };
-		915753E217C91047001492E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915753C117C91047001492E1 /* Foundation.framework */; };
-		915753E317C91047001492E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915753C517C91047001492E1 /* UIKit.framework */; };
 		915753EB17C91047001492E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 915753E917C91047001492E1 /* InfoPlist.strings */; };
 		915753ED17C91047001492E1 /* FB_HomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 915753EC17C91047001492E1 /* FB_HomeTests.m */; };
 		915753F717C91323001492E1 /* Rain-640x1136.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 915753F617C91323001492E1 /* Rain-640x1136.jpg */; };
@@ -34,7 +29,6 @@
 		915CFCD917E4B2B200236A7B /* pinbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CFCD717E4B2B200236A7B /* pinbutton.png */; };
 		915CFCDB17E50C4C00236A7B /* compass-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CFCDA17E50C4C00236A7B /* compass-bg.png */; };
 		915CFCDD17E50E3C00236A7B /* hanger-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CFCDC17E50E3C00236A7B /* hanger-bg.png */; };
-		9194F8DA17CA20FB00D1BC7F /* ActionPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9194F8D917CA20FB00D1BC7F /* ActionPageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		411A63B41AFA1EED00FE6AEA /* FB Home-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FB Home-Bridging-Header.h"; sourceTree = "<group>"; };
 		411A63B51AFA1EEE00FE6AEA /* AppDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelete.swift; sourceTree = "<group>"; };
 		411A63B91AFA204300FE6AEA /* HangerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangerView.swift; sourceTree = "<group>"; };
 		411A63BB1AFA29EB00FE6AEA /* RopeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RopeView.swift; sourceTree = "<group>"; };
 		411A63BD1AFA372000FE6AEA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		41AD66771CF1B35200F17BEE /* ActionPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPageController.swift; sourceTree = "<group>"; };
 		912ABCF717CE217C004015CA /* ios-launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-launcher.png"; sourceTree = "<group>"; };
 		912ABCF817CE217C004015CA /* ios-mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-mail.png"; sourceTree = "<group>"; };
 		912ABCF917CE217C004015CA /* ios-messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-messages.png"; sourceTree = "<group>"; };
@@ -60,16 +54,11 @@
 		912ABCFE17CE2989004015CA /* mailbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mailbutton.png; sourceTree = "<group>"; };
 		912ABCFF17CE2989004015CA /* messagebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messagebutton.png; sourceTree = "<group>"; };
 		915753BE17C91047001492E1 /* FB Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FB Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		915753C117C91047001492E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		915753C317C91047001492E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		915753C517C91047001492E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		915753C917C91047001492E1 /* FB Home-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FB Home-Info.plist"; sourceTree = "<group>"; };
 		915753CB17C91047001492E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		915753CF17C91047001492E1 /* FB Home-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FB Home-Prefix.pch"; sourceTree = "<group>"; };
 		915753D417C91047001492E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		915753D917C91047001492E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		915753DF17C91047001492E1 /* FB HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FB HomeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		915753E017C91047001492E1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		915753E817C91047001492E1 /* FB HomeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FB HomeTests-Info.plist"; sourceTree = "<group>"; };
 		915753EA17C91047001492E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		915753EC17C91047001492E1 /* FB_HomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FB_HomeTests.m; sourceTree = "<group>"; };
@@ -79,8 +68,6 @@
 		915CFCD717E4B2B200236A7B /* pinbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinbutton.png; sourceTree = "<group>"; };
 		915CFCDA17E50C4C00236A7B /* compass-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass-bg.png"; sourceTree = "<group>"; };
 		915CFCDC17E50E3C00236A7B /* hanger-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hanger-bg.png"; sourceTree = "<group>"; };
-		9194F8D817CA20FB00D1BC7F /* ActionPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionPageController.h; sourceTree = "<group>"; };
-		9194F8D917CA20FB00D1BC7F /* ActionPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionPageController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				915753C417C91047001492E1 /* CoreGraphics.framework in Frameworks */,
-				915753C617C91047001492E1 /* UIKit.framework in Frameworks */,
-				915753C217C91047001492E1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,9 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				915753E117C91047001492E1 /* XCTest.framework in Frameworks */,
-				915753E317C91047001492E1 /* UIKit.framework in Frameworks */,
-				915753E217C91047001492E1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,10 +110,6 @@
 		915753C017C91047001492E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				915753C117C91047001492E1 /* Foundation.framework */,
-				915753C317C91047001492E1 /* CoreGraphics.framework */,
-				915753C517C91047001492E1 /* UIKit.framework */,
-				915753E017C91047001492E1 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,8 +121,7 @@
 				411A63B51AFA1EEE00FE6AEA /* AppDelete.swift */,
 				411A63B91AFA204300FE6AEA /* HangerView.swift */,
 				411A63BB1AFA29EB00FE6AEA /* RopeView.swift */,
-				9194F8D817CA20FB00D1BC7F /* ActionPageController.h */,
-				9194F8D917CA20FB00D1BC7F /* ActionPageController.m */,
+				41AD66771CF1B35200F17BEE /* ActionPageController.swift */,
 				411A63BD1AFA372000FE6AEA /* ViewController.swift */,
 				915753D917C91047001492E1 /* Images.xcassets */,
 				915753F817C9309D001492E1 /* Images */,
@@ -157,10 +133,8 @@
 		915753C817C91047001492E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				411A63B41AFA1EED00FE6AEA /* FB Home-Bridging-Header.h */,
 				915753C917C91047001492E1 /* FB Home-Info.plist */,
 				915753CA17C91047001492E1 /* InfoPlist.strings */,
-				915753CF17C91047001492E1 /* FB Home-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -315,8 +289,8 @@
 			files = (
 				411A63BE1AFA372000FE6AEA /* ViewController.swift in Sources */,
 				411A63B61AFA1EEE00FE6AEA /* AppDelete.swift in Sources */,
+				41AD66781CF1B35200F17BEE /* ActionPageController.swift in Sources */,
 				411A63BA1AFA204300FE6AEA /* HangerView.swift in Sources */,
-				9194F8DA17CA20FB00D1BC7F /* ActionPageController.m in Sources */,
 				411A63BC1AFA29EB00FE6AEA /* RopeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +357,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
@@ -402,6 +377,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
 		};
@@ -421,6 +397,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -432,6 +409,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -444,7 +422,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "FB Home/FB Home-Prefix.pch";
 				INFOPLIST_FILE = "FB Home/FB Home-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -452,7 +430,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fi.fidisk.moxsoini.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "FB Home/FB Home-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
@@ -466,7 +445,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "FB Home/FB Home-Prefix.pch";
 				INFOPLIST_FILE = "FB Home/FB Home-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -474,7 +453,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fi.fidisk.moxsoini.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "FB Home/FB Home-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
