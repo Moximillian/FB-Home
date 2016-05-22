@@ -15,25 +15,13 @@ class RopeView : UIView {
   private var initialLength: CGFloat = 1.0
   private var length: CGFloat = 1.0
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    initialize()
-  }
-
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    initialize()
-  }
-
-  private func initialize() {
-    // Initialization code
+  override func didMoveToSuperview() {
     isOpaque = false
   }
 
   func initRopeLength(sPt: CGPoint, to ePt: CGPoint) {
     initialLength = hypot(ePt.x - sPt.x, ePt.y - sPt.y)
   }
-
 
   func setRope(sPt:CGPoint, to ePt:CGPoint) {
     self.sPt = sPt

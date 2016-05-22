@@ -14,18 +14,9 @@ class HangerView : UIView {
   private lazy var lineLength: CGFloat = { return self.bounds.size.height/2 }()
   private lazy var ePt: CGPoint = { return CGPoint(x: self.sPt.x, y: self.sPt.y + self.lineLength) }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    initialize()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    initialize()
-  }
-
-  private func initialize() {
-    // Initialization code
+  override func didMoveToSuperview() {
     isOpaque = false
   }
 
