@@ -137,7 +137,7 @@ class ActionPageController: UIViewController {
     case .right:
       sshot = "compass-bg.png"
       UIApplication.shared().statusBarStyle = .lightContent
-      self.view.addSubview(hangerView)
+      view.addSubview(hangerView)
 
     case .left:
       sshot = "hanger-bg.png"
@@ -151,7 +151,7 @@ class ActionPageController: UIViewController {
       cross.path = path.cgPath
       cross.strokeColor = UIColor.red().cgColor
       cross.lineWidth = 1.0
-      cross.frame = CGRect(x: self.view.bounds.midX - 20.0, y: 20.0, width: 40.0, height: 40.0)
+      cross.frame = CGRect(x: view.bounds.midX - 20.0, y: 20.0, width: 40.0, height: 40.0)
       view.layer.addSublayer(cross)
 
       //pinbutton

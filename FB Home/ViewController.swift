@@ -146,7 +146,7 @@ class ViewController: UIViewController {
     /* Called when a touch begins */
 
     for touch in touches {
-      var pt = touch.location(in: self.view)
+      var pt = touch.location(in: view)
       pt.x -= startButton.frame.origin.x
       pt.y -= startButton.frame.origin.y
       if startButton.point(inside: pt, with:nil) {
@@ -160,7 +160,7 @@ class ViewController: UIViewController {
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if buttonDragging {
       for touch in touches {
-        let pt = touch.location(in: self.view)
+        let pt = touch.location(in: view)
         startButton.center = pt;
       }
     }
@@ -169,7 +169,7 @@ class ViewController: UIViewController {
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     if (buttonDragging) {
       for touch in touches {
-        let pt = touch.location(in: self.view)
+        let pt = touch.location(in: view)
         //NSLog(@"Action button test: %.0f %.0f", pt.x, pt.y);
         if actionTest(v: leftActionButton, p: pt) { viewActivate(message: "Left") }
         if actionTest(v: rightActionButton, p: pt) { viewActivate(message: "Right") }
