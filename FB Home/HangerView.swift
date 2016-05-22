@@ -14,15 +14,14 @@ class HangerView : UIView {
   private lazy var lineLength: CGFloat = { return self.bounds.size.height/2 }()
   private lazy var ePt: CGPoint = { return CGPoint(x: self.sPt.x, y: self.sPt.y + self.lineLength) }()
 
+  var angle: CGFloat = 0 {
+    didSet {
+      ePt = CGPoint(x: sPt.x + lineLength * sin(angle), y: sPt.y + lineLength * cos(angle))
+    }
   }
 
   override func didMoveToSuperview() {
     isOpaque = false
-  }
-
-
-  func setAngle(angle: CGFloat) {
-    ePt = CGPoint(x: sPt.x + lineLength * sin(angle), y: sPt.y + lineLength * cos(angle))
   }
 
   // Only override drawRect: if you perform custom drawing.

@@ -263,8 +263,7 @@ class ActionPageController: UIViewController {
       if hasReferencePos {
         /*NSLog(@"Motion: PITCH: %.0f, ROLL: %.0f, YAW: %.0f", motion.attitude.pitch*180/M_PI, motion.attitude.roll*180/M_PI, motion.attitude.yaw*180/M_PI);
          */
-        let downAngle = CGFloat(M_PI/2 - motion.attitude.yaw) // - _referenceYaw);
-        hangerView.setAngle(angle: downAngle)
+        hangerView.angle = CGFloat(M_PI/2 - motion.attitude.yaw) // - _referenceYaw)
         hangerView.setNeedsDisplay()
 
       } else {
