@@ -188,7 +188,7 @@ class ViewController: UIViewController {
   }
 
   private func viewActivate(message: String) {
-    print("Action activated: %@.", message)
+    print("Action activated: ", message)
     performSegue(withIdentifier: "actionPageSeque", sender:message as AnyObject)
   }
 
